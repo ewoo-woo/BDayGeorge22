@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #a6e4ff, #c2fff0);
+        font-family: 'Quicksand', sans-serif;
+        overflow-x: hidden;
+        text-align: center;
+        color: #034b61;
+    }
+
+    h1 {
+        font-family: 'Fredoka One', cursive;
+        font-size: 2.7rem;
+        margin-top: 50px;
+        text-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+        color: #027e95;
+    }
+
+    p.message {
+        font-size: 1.3rem;
+        max-width: 700px;
+        margin: 20px auto 40px auto;
+    }
+
+    /* Floating Hearts */
+    .heart {
+        position: fixed;
+        bottom: -20px;
+        width: 18px;
+        height: 18px;
+        background: #ff83a8;
+        transform: rotate(-45deg);
+        animation: floatUp 6s linear infinite;
+    }
+
+    .heart:before, .heart:after {
+        content: "";
+        width: 18px;
+        height: 18px;
+        background: #ff83a8;
+        border-radius: 50%;
+        position: absolute;
+    }
+
+    .heart:before { top: -10px; left: 0; }
+    .heart:after { left: 10px; top: 0; }
+
+    @keyframes floatUp {
+        0% {transform: translateY(0) rotate(-45deg); opacity: 1;}
+        100% {transform: translateY(-120vh) rotate(-45deg); opacity: 0;}
+    }
+
+    /* Fireworks */
+    .firework {
+        position: fixed;
+        width: 6px;
+        height: 6px;
+        background: transparent;
+        border-radius: 50%;
+        box-shadow: 0 0 20px 5px #fff;
+        animation: explode 1.4s infinite ease-out;
+    }
+
+    @keyframes explode {
+        0% {transform: scale(0.2); opacity: 1;}
+        80% {opacity: 1;}
+        100% {transform: scale(2.5); opacity: 0;}
+    }
+
+    /* Sparkles */
+    .sparkle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: #ffffffcc;
+        border-radius: 50%;
+        box-shadow: 0 0 14px 6px #ffffffaa;
+        animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+        0%,100% {opacity: 0.2; transform: scale(0.6);}
+        50% {opacity: 1; transform: scale(1.2);}
+    }
+
+    /* Slideshow */
+    .slideshow-container {
+        position: relative;
+        max-width: 500px;
+        margin: 40px auto;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .slide {
+        display: none;
+        width: 100%;
+    }
+
+    /* Dinosaurs */
+    .dino-row {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+
+    .dino {
+        width: 160px;
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        animation: float 4s infinite ease-in-out;
+    }
+
+    @keyframes float {
+        0%,100% {transform: translateY(0);}
+        50% {transform: translateY(-12px);}
+    }
+
+    /* Button */
+    .btn {
+        display: inline-block;
+        margin-top: 40px;
+        padding: 14px 30px;
+        background: #027e95;
+        color: white;
+        font-size: 1.3rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 30px;
+        transition: 0.25s;
+        box-shadow: 0 6px 16px rgba(2, 126, 149, 0.4);
+    }
+
+    .btn:hover {
+        background: #015b6b;
+        transform: scale(1.05);
+    }
+
+</style>
+</head>
+
+<body>
+
+<h1>Happy Birthday!</h1>
+
+<p class="message">
+    ❤️ I love you so much, I’m so grateful to have you in my life ❤️
+</p>
+
+<!-- Fireworks -->
+<div class="firework" style="top:20%; left:25%; animation-delay:0s;"></div>
+<div class="firework" style="top:35%; left:70%; animation-delay:0.5s;"></div>
+<div class="firework" style="top:65%; left:40%; animation-delay:1s;"></div>
+
+<!-- Sparkles -->
+<script>
+for (let i = 0; i < 50; i++) {
+    const s = document.createElement("div");
+    s.className = "sparkle";
+    s.style.top = Math.random() * 100 + "vh";
+    s.style.left = Math.random() * 100 + "vw";
+    s.style.animationDelay = (Math.random() * 2) + "s";
+    document.body.appendChild(s);
+}
+</script>
+
+<!-- Floating Hearts -->
+<script>
+for (let i = 0; i < 25; i++) {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.animationDelay = Math.random() * 5 + "s";
+    h.style.transform = `scale(${0.6 + Math.random() * 0.8}) rotate(-45deg)`;
+    document.body.appendChild(h);
+}
+</script>
+
+<!-- Slideshow -->
+<div class="slideshow-container">
+
+    <!-- ⭐ Replace these image links with your own photos later ⭐ -->
+    <img class="slide" src="https://placehold.co/800x600/87cefa/ffffff?text=Photo+1">
+    <img class="slide" src="https://placehold.co/800x600/20b2aa/ffffff?text=Photo+2">
+    <img class="slide" src="https://placehold.co/800x600/2e8b57/ffffff?text=Photo+3">
+
+</div>
+
+<script>
+let slideIndex = 0;
+function showSlides() {
+    let slides = document.getElementsByClassName("slide");
+    for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
+    slideIndex++;
+    if (slideIndex > slides.length) slideIndex = 1;
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(showSlides, 2500);
+}
+showSlides();
+</script>
+
+<!-- Dinosaurs -->
+<div class="dino-row">
+    <img class="dino" src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Ankylosaurus_cartoon.svg">
+    <img class="dino" src="https://upload.wikimedia.org/wikipedia/commons/3/37/Diplodocus_cartoon.svg">
+    <img class="dino" src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Triceratops_cartoon.svg">
+</div>
+
+<!-- Present link -->
+<a class="btn" href="YOUR_PRESENT_LINK_HERE" target="_blank">Your Birthday Present 🎁🏎️</a>
+
+</body>
+</html>
