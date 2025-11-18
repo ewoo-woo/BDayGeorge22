@@ -60,32 +60,6 @@
         100% {transform: translateY(-120vh) rotate(-45deg); opacity: 0;}
     }
 
-/* Sparkly Burst Fireworks */
-.firework {
-    position: fixed;
-    width: 4px;
-    height: 4px;
-    background: radial-gradient(circle, #fff, #ffe37b, #ff7b7b);
-    border-radius: 50%;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 2;
-}
-
-@keyframes burst {
-    0% {
-        transform: scale(0.2);
-        opacity: 1;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        transform: scale(8) rotate(360deg);
-        opacity: 0;
-    }
-}
-
 
     /* Sparkles */
     .sparkle {
@@ -182,27 +156,6 @@
     
     Emily ❤️❤️
 </p>
-
-<script>
-function createFirework() {
-    const fw = document.createElement("div");
-    fw.classList.add("firework");
-
-    let x = Math.random() * window.innerWidth;
-    let y = Math.random() * window.innerHeight * 0.6;
-
-    fw.style.left = x + "px";
-    fw.style.top = y + "px";
-    fw.style.animation = "burst 1.6s ease-out forwards";
-
-    document.body.appendChild(fw);
-
-    setTimeout(() => fw.remove(), 1600);
-}
-
-// Make fireworks every 700–1200 ms
-setInterval(createFirework, 900);
-</script>
 
 
 <!-- Sparkles -->
