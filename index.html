@@ -40,6 +40,7 @@
         background: #ff83a8;
         transform: rotate(-45deg);
         animation: floatUp 6s linear infinite;
+        z-index: 2;
     }
 
     .heart:before, .heart:after {
@@ -59,21 +60,25 @@
         100% {transform: translateY(-120vh) rotate(-45deg); opacity: 0;}
     }
 
-    /* Fireworks */
+    /* IMPROVED FIREWORKS (visible on light blue) */
     .firework {
         position: fixed;
-        width: 6px;
-        height: 6px;
-        background: transparent;
+        width: 10px;
+        height: 10px;
         border-radius: 50%;
-        box-shadow: 0 0 20px 5px #fff;
+        background: #ffffff;
+        box-shadow:
+            0 0 20px 10px #fff,
+            0 0 40px 20px #7ffeff,
+            0 0 60px 30px #00d5ff;
         animation: explode 1.4s infinite ease-out;
+        z-index: 1;
     }
 
     @keyframes explode {
         0% {transform: scale(0.2); opacity: 1;}
         80% {opacity: 1;}
-        100% {transform: scale(2.5); opacity: 0;}
+        100% {transform: scale(3); opacity: 0;}
     }
 
     /* Sparkles */
@@ -85,6 +90,7 @@
         border-radius: 50%;
         box-shadow: 0 0 14px 6px #ffffffaa;
         animation: twinkle 2s infinite ease-in-out;
+        z-index: 1;
     }
 
     @keyframes twinkle {
@@ -100,6 +106,7 @@
         border-radius: 20px;
         overflow: hidden;
         box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        z-index: 2;
     }
 
     .slide {
@@ -114,6 +121,7 @@
         justify-content: center;
         gap: 40px;
         flex-wrap: wrap;
+        z-index: 2;
     }
 
     .dino {
@@ -145,6 +153,21 @@
     .btn:hover {
         background: #015b6b;
         transform: scale(1.05);
+    }
+
+    /* FLOATING SAILING BOATS */
+    .boat {
+        position: fixed;
+        bottom: 0;
+        width: 120px;
+        animation: sail 25s linear infinite;
+        z-index: 1;
+        opacity: 0.9;
+    }
+
+    @keyframes sail {
+        0% {transform: translateX(-150px);}
+        100% {transform: translateX(120vw);}
     }
 
 </style>
@@ -192,17 +215,22 @@ for (let i = 0; i < 25; i++) {
 }
 </script>
 
+<!-- Floating Sailing Boats -->
+<img class="boat" style="animation-delay:0s" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Boat_cartoon.svg/512px-Boat_cartoon.svg.png">
+<img class="boat" style="animation-delay:8s" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Sailboat_cartoon.svg">
+<img class="boat" style="animation-delay:16s" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Sailboat_cartoon.svg/512px-Sailboat_cartoon.svg.png">
+
 <!-- Slideshow -->
 <div class="slideshow-container">
 
-    <!-- ⭐ Replace these image links with your own photos later ⭐ -->
-    <img class="slide" src="IMG_2623.HEIC">
+    <!-- Replace with JPG/PNG versions -->
+    <img class="slide" src="IMG_2623.jpg">
     <img class="slide" src="IMG_2663.JPG">
     <img class="slide" src="IMG_2666.JPG">
     <img class="slide" src="IMG_3253.JPG">
-    <img class="slide" src="IMG_6134.HEIC">
-    <img class="slide" src="IMG_6571.HEIC">
-    
+    <img class="slide" src="IMG_6134.jpg">
+    <img class="slide" src="IMG_6571.jpg">
+
 </div>
 
 <script>
@@ -221,8 +249,8 @@ showSlides();
 <!-- Dinosaurs -->
 <div class="dino-row">
     <img class="dino" src="dinoL.png">
-     <img class="dino" src="DinoM.png">
-    <img class="dino" src="DinoR.pmg">
+    <img class="dino" src="DinoM.png">
+    <img class="dino" src="DinoR.png">
 </div>
 
 <!-- Present link -->
