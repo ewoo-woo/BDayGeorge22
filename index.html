@@ -60,26 +60,32 @@
         100% {transform: translateY(-120vh) rotate(-45deg); opacity: 0;}
     }
 
-    /* IMPROVED FIREWORKS (visible on light blue) */
-    .firework {
-        position: fixed;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: #ffffff;
-        box-shadow:
-            0 0 20px 10px #fff,
-            0 0 40px 20px #7ffeff,
-            0 0 60px 30px #00d5ff;
-        animation: explode 1.4s infinite ease-out;
-        z-index: 1;
-    }
+/* Sparkly Burst Fireworks */
+.firework {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, #fff, #ffe37b, #ff7b7b);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+}
 
-    @keyframes explode {
-        0% {transform: scale(0.2); opacity: 1;}
-        80% {opacity: 1;}
-        100% {transform: scale(3); opacity: 0;}
+@keyframes burst {
+    0% {
+        transform: scale(0.2);
+        opacity: 1;
     }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(8) rotate(360deg);
+        opacity: 0;
+    }
+}
+
 
     /* Sparkles */
     .sparkle {
@@ -155,20 +161,22 @@
         transform: scale(1.05);
     }
 
-    /* FLOATING SAILING BOATS */
-    .boat {
-        position: fixed;
-        bottom: 0;
-        width: 120px;
-        animation: sail 25s linear infinite;
-        z-index: 1;
-        opacity: 0.9;
-    }
+/* Floating Sailing Boats */
+.boat {
+    position: fixed;
+    bottom: 0;
+    width: 140px;
+    opacity: 0.9;
+    animation: sail 32s linear infinite;
+    z-index: 2;
+}
 
-    @keyframes sail {
-        0% {transform: translateX(-150px);}
-        100% {transform: translateX(120vw);}
-    }
+@keyframes sail {
+    0%   { transform: translateX(-200px) translateY(0); }
+    50%  { transform: translateX(50vw) translateY(-8px); }
+    100% { transform: translateX(120vw) translateY(0); }
+}
+
 
 </style>
 </head>
@@ -186,10 +194,27 @@
     Emily ❤️❤️
 </p>
 
-<!-- Fireworks -->
-<div class="firework" style="top:20%; left:25%; animation-delay:0s;"></div>
-<div class="firework" style="top:35%; left:70%; animation-delay:0.5s;"></div>
-<div class="firework" style="top:65%; left:40%; animation-delay:1s;"></div>
+<script>
+function createFirework() {
+    const fw = document.createElement("div");
+    fw.classList.add("firework");
+
+    let x = Math.random() * window.innerWidth;
+    let y = Math.random() * window.innerHeight * 0.6;
+
+    fw.style.left = x + "px";
+    fw.style.top = y + "px";
+    fw.style.animation = "burst 1.6s ease-out forwards";
+
+    document.body.appendChild(fw);
+
+    setTimeout(() => fw.remove(), 1600);
+}
+
+// Make fireworks every 700–1200 ms
+setInterval(createFirework, 900);
+</script>
+
 
 <!-- Sparkles -->
 <script>
@@ -215,10 +240,15 @@ for (let i = 0; i < 25; i++) {
 }
 </script>
 
-<!-- Floating Sailing Boats -->
-<img class="boat" style="animation-delay:0s" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Boat_cartoon.svg/512px-Boat_cartoon.svg.png">
-<img class="boat" style="animation-delay:8s" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Sailboat_cartoon.svg">
-<img class="boat" style="animation-delay:16s" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Sailboat_cartoon.svg/512px-Sailboat_cartoon.svg.png">
+<!-- Guaranteed working cartoon sailboats -->
+<img class="boat" style="animation-delay:0s"
+     src="https://cdn-icons-png.flaticon.com/512/7341/7341287.png">
+
+<img class="boat" style="animation-delay:10s"
+     src="https://cdn-icons-png.flaticon.com/512/7341/7341291.png">
+
+<img class="boat" style="animation-delay:20s"
+     src="https://cdn-icons-png.flaticon.com/512/7341/7341334.png">
 
 <!-- Slideshow -->
 <div class="slideshow-container">
